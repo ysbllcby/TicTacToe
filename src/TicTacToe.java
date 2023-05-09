@@ -45,6 +45,8 @@ public class TicTacToe implements ActionListener {
         title_panel.add(textfield);
         frame.add(title_panel, BorderLayout.NORTH);
         frame.add(button_panel);
+
+        firstTurn();
     }
 
     @Override
@@ -54,6 +56,19 @@ public class TicTacToe implements ActionListener {
 
     public void firstTurn() {
 
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        if(random.nextInt(2) == 0) {
+            player1_turn = true;
+            textfield.setText("X turn");
+        } else {
+            player1_turn = false;
+            textfield.setText("O turn");
+        }
     }
 
     public void check() {
